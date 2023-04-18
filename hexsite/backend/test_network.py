@@ -4,6 +4,8 @@ import numpy as np
 import argparse
 import imutils
 import cv2
+import urllib.request
+import sys
 
 def network_test_no_args(model, image):
 	# construct the argument parser and parse the arguments
@@ -14,7 +16,7 @@ def network_test_no_args(model, image):
 		#help="path to input image")
 	#args = vars(ap.parse_args())
 	# load the image
-	image = cv2.imread(image)
+	#image = cv2.imread(image)
 	orig = image.copy()
 	# pre-process the image for classification
 	image = cv2.resize(image, (28, 28))
@@ -79,5 +81,11 @@ def network_test_with_args():
 	cv2.waitKey(0)
 
 if __name__ == '__main__':
+    url = sys.argv[1]
+    #print(url)
+    url_response = urllib.request.urlopen(url)
+    img_array = np.array(bytearray(url_response.read()), dtype=np.uint8)
+    img = cv2.imdecode(img_array, -1)
+    #print(img)
     print(network_test_no_args("C:\\Users\\Stuff\\Downloads\\Schoolwork\\Personal Projects\\Untitled Tensorflow Project\\IsThisHexManiac\\hexsite\\backend\\hex_maniac.model", 
-			       "C:\\Users\\Stuff\\Downloads\\Schoolwork\\Personal Projects\\Untitled Tensorflow Project\\IsThisHexManiac\\hexsite\\backend\\007.png"))
+			       img))
