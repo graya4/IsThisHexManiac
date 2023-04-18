@@ -37,8 +37,12 @@ def network_test_no_args(model, image):
 	# draw the label on the image
 	output = imutils.resize(orig, width=400)
 	outputtext = "{}".format(label)
-	cv2.putText(output, label, (10, 25),  cv2.FONT_HERSHEY_SIMPLEX,
-		0.7, (0, 255, 0), 2)
+	if proba == hex:
+		cv2.putText(output, label, (10, 25),  cv2.FONT_HERSHEY_SIMPLEX,
+			0.7, (0, 255, 0), 2)
+	else:
+		cv2.putText(output, label, (10, 25),  cv2.FONT_HERSHEY_SIMPLEX,
+			0.7, (0, 0, 255), 2)
 	# show the output image
 	cv2.imshow("Output", output)
 	cv2.waitKey(0)
