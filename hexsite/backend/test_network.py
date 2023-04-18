@@ -39,7 +39,7 @@ def network_test_no_args(model, image):
 		0.7, (0, 255, 0), 2)
 	# show the output image
 	cv2.imshow("Output", output)
-	#cv2.waitKey(0)
+	cv2.waitKey(0)
 	return outputtext
 
 
@@ -80,4 +80,4 @@ def network_test_with_args():
 
 if __name__ == '__main__':
     print(network_test_no_args("C:\\Users\\Stuff\\Downloads\\Schoolwork\\Personal Projects\\Untitled Tensorflow Project\\IsThisHexManiac\\hexsite\\backend\\hex_maniac.model", 
-			       "C:\\Users\\Stuff\\Downloads\\Schoolwork\\Personal Projects\\Untitled Tensorflow Project\\IsThisHexManiac\\hexsite\\backend\\010.png"))
+			       "C:\\Users\\Stuff\\Downloads\\Schoolwork\\Personal Projects\\Untitled Tensorflow Project\\IsThisHexManiac\\hexsite\\backend\\007.png"))
