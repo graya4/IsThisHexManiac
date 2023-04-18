@@ -79,4 +79,5 @@ def network_test_with_args():
 	cv2.waitKey(0)
 
 if __name__ == '__main__':
-    print(network_test_no_args("C:\\Users\\Stuff\\Downloads\\Schoolwork\\Personal Projects\\Untitled Tensorflow Project\\IsThisHexManiac\\hexsite\\backend\\hex_maniac.model", "C:\\Users\\Stuff\\Downloads\\Schoolwork\\Personal Projects\\Untitled Tensorflow Project\\IsThisHexManiac\\hexsite\\backend\\006.jpg"))
+    print(network_test_no_args("C:\\Users\\Stuff\\Downloads\\Schoolwork\\Personal Projects\\Untitled Tensorflow Project\\IsThisHexManiac\\hexsite\\backend\\hex_maniac.model", 
+			       "C:\\Users\\Stuff\\Downloads\\Schoolwork\\Personal Projects\\Untitled Tensorflow Project\\IsThisHexManiac\\hexsite\\backend\\010.png"))
