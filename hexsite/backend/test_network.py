@@ -91,5 +91,5 @@ if __name__ == '__main__':
     img_array = np.array(bytearray(url_response.read()), dtype=np.uint8)
     img = cv2.imdecode(img_array, -1)
     #print(img)
-    print(network_test_no_args("C:\\Users\\Stuff\\Downloads\\Schoolwork\\Personal Projects\\Untitled Tensorflow Project\\IsThisHexManiac\\hexsite\\backend\\hex_maniac.model", 
+    print(network_test_no_args("hex_maniac.model", 
 			       img))
