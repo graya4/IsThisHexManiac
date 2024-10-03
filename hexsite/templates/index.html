@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image URL Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Submit an Image URL</h1>
+    <form id="imageForm">
+        <input type="text" name="image_url" id="image_url" placeholder="Enter image URL">
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="imageContainer">
+        <p id="response"></p>
+        <img id="imageDisplay" src="" alt="Your image will appear here" style="display:none; max-width: 500px;">
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#imageForm').on('submit', function(event) {
+                event.preventDefault();  // Prevent the form from redirecting the page
+                var imageUrl = $('#image_url').val();
+
+                $.ajax({
+                    url: '/submit',
+                    type: 'POST',
+                    data: { image_url: imageUrl },
+                    success: function(response) {
+                        $('#response').text(response);
+                        $('#imageDisplay').attr('src', imageUrl);  // Set the image source to the input URL
+                        $('#imageDisplay').show();  // Display the image
+                    },
+                    error: function() {
+                        $('#response').text('An error occurred.');
+                        $('#imageDisplay').hide();  // Hide the image if an error occurs
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -44,8 +44,9 @@ def network_test_no_args(model, image):
 		cv2.putText(output, label, (10, 25),  cv2.FONT_HERSHEY_SIMPLEX,
 			0.7, (0, 0, 255), 2)
 	# show the output image
-	cv2.imshow("Output", output)
-	cv2.waitKey(0)
+	#cv2.imshow("Output", output)
+	#cv2.waitKey(0)
+	print(outputtext)
 	return outputtext
 
 
@@ -81,8 +82,9 @@ def network_test_with_args():
 	cv2.putText(output, label, (10, 25),  cv2.FONT_HERSHEY_SIMPLEX,
 		0.7, (0, 255, 0), 2)
 	# show the output image
-	cv2.imshow("Output", output)
-	cv2.waitKey(0)
+	#print(label)
+	#cv2.imshow("Output", output)
+	#cv2.waitKey(0)
 
 if __name__ == '__main__':
     url = sys.argv[1]
@@ -91,5 +93,5 @@ if __name__ == '__main__':
     img_array = np.array(bytearray(url_response.read()), dtype=np.uint8)
     img = cv2.imdecode(img_array, -1)
     #print(img)
-    print(network_test_no_args("hex_maniac.model", 
+    print(network_test_no_args("hex_maniac.keras", 
 			       img))
